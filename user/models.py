@@ -23,11 +23,11 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
     password = models.CharField(max_length=150, blank=True)
-
+    phone_number = models.CharField(max_length=10, blank=True)
     objects = CustomUserManager()
 
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS=['first_name','last_name','password']
+    REQUIRED_FIELDS=[]
 
     def __str__(self):
         return self.email
